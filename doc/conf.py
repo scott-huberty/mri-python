@@ -15,7 +15,7 @@ from typing import TYPE_CHECKING
 from intersphinx_registry import get_intersphinx_mapping
 from sphinx_gallery.sorting import FileNameSortKey
 
-import template
+import mri
 
 if TYPE_CHECKING:
     from typing import Optional
@@ -23,12 +23,12 @@ if TYPE_CHECKING:
 # -- project information ---------------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "template-python"
-author = "Mathieu Scheltienne"
+project = "MRI-python"
+author = "Scott Huberty"
 copyright = f"{date.today().year}, {author}"  # noqa: A001
-release = template.__version__
-package = template.__name__
-gh_url = "https://github.com/mscheltienne/template-python"
+release = mri.__version__
+package = mri.__name__
+gh_url = "https://github.com/scott-huberty/mri-python"
 
 # -- general configuration -------------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

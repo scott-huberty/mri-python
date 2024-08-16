@@ -35,9 +35,9 @@ jobs:
           python -m pip install --quiet uv
           uv pip install --quiet --system .[test]
       - name: Display system information
-        run: template sys-info --developer
+        run: mri sys-info --developer
       - name: Run pytest
-        run: pytest template --cov=template --cov-report=xml --cov-config=pyproject.toml
+        run: pytest mri --cov=template --cov-report=xml --cov-config=pyproject.toml
       - name: Upload to codecov
         uses: codecov/codecov-action@v4
         with:
@@ -71,9 +71,9 @@ jobs:
           uv pip install --quiet --system .[test]
           uv pip install --quiet --system --upgrade --prerelease allow --only-binary :all: -i https://pypi.anaconda.org/scientific-python-nightly-wheels/simple numpy
       - name: Display system information
-        run: template sys-info --developer
+        run: mri sys-info --developer
       - name: Run pytest
-        run: pytest template --cov=template --cov-report=xml --cov-config=pyproject.toml
+        run: pytest mri --cov=template --cov-report=xml --cov-config=pyproject.toml
       - name: Upload to codecov
         uses: codecov/codecov-action@v4
         with:

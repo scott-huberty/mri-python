@@ -1,7 +1,7 @@
 Logging
 =======
 
-.. currentmodule:: template
+.. currentmodule:: mri
 
 .. autosummary::
     :toctree: generated/

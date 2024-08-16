@@ -4,7 +4,7 @@ requires = ['setuptools >= 64.0.0']
 
 [project]
 authors = [
-  {email = 'mathieu.scheltienne@fcbg.ch', name = 'Mathieu Scheltienne'},
+  {email = 'seh33@uw.edu', name = 'Scott Huberty'},
 ]
 classifiers = [
   'License :: OSI Approved :: MIT License',
@@ -24,27 +24,27 @@ dependencies = [
   'packaging',
   'psutil',
 ]
-description = 'Template for python projects.'
+description = 'MRI Processing and Analyses in Python.'
 keywords = [
   'python',
-  'template',
+  'MRI',
 ]
 license = {file = 'LICENSE'}
 maintainers = [
-  {email = 'mathieu.scheltienne@fcbg.ch', name = 'Mathieu Scheltienne'},
+  {email = 'seh33@uw.edu', name = 'Scott Huberty'},
 ]
-name = 'template'
+name = 'mri-python'
 readme = 'README.md'
 requires-python = '>=3.9'
 version = '0.1.0'
 
 [project.optional-dependencies]
 all = [
-  'template[build]',
-  'template[doc]',
-  'template[stubs]',
-  'template[style]',
-  'template[test]',
+  'mri-python[build]',
+  'mri-pyhon[doc]',
+  'mri-python[stubs]',
+  'mri-python[style]',
+  'mri-python[test]',
 ]
 build = [
   'build',
@@ -64,7 +64,7 @@ doc = [
   'sphinxcontrib-bibtex',
 ]
 full = [
-  'template[all]',
+  'mri-python[all]',
 ]
 stubs = [
   'mypy',
@@ -85,13 +85,13 @@ test = [
 ]
 
 [project.scripts]
-template = 'template.commands.main:run'
+mri = 'mri.commands.main:run'
 
 [project.urls]
-documentation = 'https://github.com/mscheltienne/template-python'
-homepage = 'https://github.com/mscheltienne/template-python'
-source = 'https://github.com/mscheltienne/template-python'
-tracker = 'https://github.com/mscheltienne/template-python/issues'
+documentation = 'https://github.com/scott-huberty/mri-python'
+homepage = 'https://github.com/scott-huberty/mri-python'
+source = 'https://github.com/scott-huberty/mri-python'
+tracker = 'https://github.com/scott-huberty/mri-python/issues'
 
 [tool.codespell]
 check-filenames = true
@@ -113,8 +113,8 @@ cover_pylib = false
 omit = [
   '**/__init__.py',
   '**/conftest.py',
-  '**/template/_version.py',
-  '**/template/utils/_fixes.py',
+  '**/mri/_version.py',
+  '**/mri/utils/_fixes.py',
   '**/tests/**',
 ]
 
@@ -149,14 +149,14 @@ select = ['A', 'B', 'D', 'E', 'F', 'G', 'I', 'LOG', 'NPY', 'PIE', 'PT', 'T20', '
 
 [tool.ruff.lint.pydocstyle]
 convention = 'numpy'
-ignore-decorators = ["template.utils._docs.copy_doc"]
+ignore-decorators = ["mri.utils._docs.copy_doc"]
 
 [tool.setuptools]
 include-package-data = false
 
 [tool.setuptools.packages.find]
-exclude = ['template*tests']
-include = ['template*']
+exclude = ['mri*tests']
+include = ['mri*']
 
 [tool.tomlsort]
 all = true

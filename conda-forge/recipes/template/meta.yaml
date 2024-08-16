@@ -1,4 +1,4 @@
-{% set name = "template" %}
+{% set name = "mri" %}
 {% set version = "0.1.0" %}
 
 package:
@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/template-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mri-{{ version }}.tar.gz
   sha256: a3778ac2d7e8f22e9499e46c590408ae3236f9703b7782840d451832c7e9ccef
 
 build:
@@ -14,7 +14,7 @@ build:
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
   entry_points:
-    - template = template.commands.main:run
+    - mri = mri.commands.main:run
 
 requirements:
   host:
@@ -29,20 +29,20 @@ requirements:
 
 test:
   imports:
-    - template
+    - mri
   commands:
     - pip check
-    - template-sys_info
+    - mri-sys_info
   requires:
     - pip
 
 about:
-  home: https://mscheltienne.github.io/template-python/dev/index.html
-  summary: Template for python projects
+  home: https://scott-huberty.github.io/mri-python/dev/index.html
+  summary: MRI-Python is a Python package for working with MRI data.
   license: MIT
   license_file: LICENSE
-  dev_url: https://github.com/mscheltienne/template-python
+  dev_url: https://github.com/scott-huberty/mri-python
 
 extra:
   recipe-maintainers:
-    - mscheltienne
+    - scott-huberty

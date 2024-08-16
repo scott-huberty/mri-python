@@ -10,11 +10,11 @@
 
 .. project
 
-.. _project pypi: https://pypi.org/project/template-python/
-.. _project conda: https://anaconda.org/conda-forge/template-python
-.. _project github: https://github.com/mscheltienne/template-python
-.. _project citation: https://github.com/mscheltienne/template-python/blob/main/CITATION.cff
-.. _project license: https://github.com/mscheltienne/template-python/blob/main/LICENSE
+.. _project pypi: https://pypi.org/project/mri-python/
+.. _project conda: https://anaconda.org/conda-forge/mri-python
+.. _project github: https://github.com/scott-huberty/mri-python
+.. _project citation: https://github.com/scott-huberty/mri-python/blob/main/CITATION.cff
+.. _project license: https://github.com/scott-huberty/mri-python/blob/main/LICENSE
 
 
 .. license

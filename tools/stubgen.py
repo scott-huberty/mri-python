@@ -6,9 +6,9 @@ from pathlib import Path
 
 from mypy import stubgen
 
-import template
+import mri
 
-directory = Path(template.__file__).parent
+directory = Path(mri.__file__).parent
 # remove existing stub files
 for file in directory.rglob("*.pyi"):
     file.unlink()
