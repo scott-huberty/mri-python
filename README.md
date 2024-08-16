@@ -5,11 +5,15 @@
 [![tests](https://github.com/mscheltienne/template-python/actions/workflows/pytest.yaml/badge.svg?branch=main)](https://github.com/mscheltienne/template-python/actions/workflows/pytest.yaml)
 [![doc](https://github.com/mscheltienne/template-python/actions/workflows/doc.yaml/badge.svg?branch=main)](https://github.com/mscheltienne/template-python/actions/workflows/doc.yaml)
 
-# template-python
+# mri-python
 
-## Package
+**This package is meant to address my own use cases: e.g. for data analyses and other didactive purposes.**
 
-Template python repository. To bootstrap a project from this template, the
+Tools for interactive as well as scripting-oriented processing of neuroimaging data
+
+## To-dos
+
+This pakcage was generaed form a Template python repository. To bootstrap a project from this template, the
 following steps are required:
 
 - [ ] Rename the folder `template` to the package name
