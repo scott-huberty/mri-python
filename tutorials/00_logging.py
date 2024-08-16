@@ -40,7 +40,7 @@ logger.debug("Log that will now be displayed.")
 # By default, the logger has one `~logging.StreamHandler` which outputs to
 # ``sys.stdout``. The level of both the logger and of this first handler can be changed
 # with `~mri.set_log_level`. Additional file handlers can be added with
-# `~template.add_file_handler`. Each handler can be set to a different level than the
+# `~mri.add_file_handler`. Each handler can be set to a different level than the
 # logger.
 #
 # .. note::

@@ -1,7 +1,7 @@
 .. include:: ./links.inc
 
-**template-python**
-===================
+**MRI-python**
+==============
 
 .. toctree::
    :hidden:
