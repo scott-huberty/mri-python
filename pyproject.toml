@@ -23,6 +23,8 @@ dependencies = [
   'numpy>=1.21,<3',
   'packaging',
   'psutil',
+  'xarray',
+  'nibabel'
 ]
 description = 'MRI Processing and Analyses in Python.'
 keywords = [
