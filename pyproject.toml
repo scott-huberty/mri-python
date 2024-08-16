@@ -35,7 +35,7 @@ license = {file = 'LICENSE'}
 maintainers = [
   {email = 'seh33@uw.edu', name = 'Scott Huberty'},
 ]
-name = 'mri-python'
+name = 'mri'
 readme = 'README.md'
 requires-python = '>=3.9'
 version = '0.1.0'
@@ -55,7 +55,6 @@ build = [
 doc = [
   'furo',
   'intersphinx_registry',
-  'matplotlib',
   'memory-profiler',
   'numpydoc',
   'sphinx',
