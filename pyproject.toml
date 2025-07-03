@@ -41,11 +41,10 @@ version = '0.1.0'
 [project.optional-dependencies]
 all = [
   'mri-python[build]',
-  'mri-pyhon[doc]',
+  'mri-python[doc]',
   'mri-python[stubs]',
   'mri-python[style]',
   'mri-python[test]',
-  'mri-python[test-all]',
 ]
 build = [
   'build',
@@ -80,15 +79,7 @@ test = [
   'pytest-cov',
   'pytest-timeout',
   'pytest>=8.0',
-]
-test-all = [
   'openneuro-py',
-]
-dev = [
-  'mri-python[all]',
-]
-full = [
-  'mri-python[all]',
 ]
 
 [project.scripts]
