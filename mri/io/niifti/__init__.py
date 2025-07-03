@@ -1,2 +1,1 @@
-from .bids import BIDSPath
 from .niifti import read_raw_niifti

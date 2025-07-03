@@ -121,3 +121,7 @@ BIDS_SHARED_COORDINATE_FRAMES = (
 ALLOWED_SPACES = dict()
 ALLOWED_SPACES["anat"] = None
 ALLOWED_SPACES["beh"] = None
+
+allowed_extension_anat = [".nii", ".nii.gz"]
+ALLOWED_DATATYPE_EXTENSIONS = dict()
+ALLOWED_DATATYPE_EXTENSIONS["anat"] = allowed_extension_anat

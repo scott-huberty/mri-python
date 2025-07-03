@@ -1,9 +1,16 @@
 from pathlib import Path
+from textwrap import indent
 
 from mri.utils._checks import check_type
-from mri.io.bids.utils import _check_key_val, _check_non_sub_ses_entity
+from mri.io.bids.utils import (
+    _check_key_val,
+    _check_non_sub_ses_entity,
+    _get_matching_bidspaths_from_filesystem,
+    _parse_ext
+)
 from mri.io.bids.config import (
-    ALLOWED_DATATYPES, 
+    ALLOWED_DATATYPES,
+    ALLOWED_DATATYPE_EXTENSIONS, 
     ENTITY_VALUE_TYPE,
     ALLOWED_PATH_ENTITIES,
     ALLOWED_PATH_ENTITIES_SHORT,
@@ -577,6 +584,95 @@ class BIDSPath:
             "split": self.split,
             "description": self.description,
         }
+
+    @property
+    def fpath(self):
+        """Full filepath for this BIDS file.
+
+        Getting the file path consists of the entities passed in
+        and will get the relative (or full if ``root`` is passed)
+        path.
+
+        Returns
+        -------
+        bids_fpath : pathlib.Path
+            Either the relative, or full path to the dataset.
+        """
+        # get the inner-most BIDS directory for this file path
+        data_path = self.directory
+        # if suffix and/or extension is missing, and root is
+        # not None, then BIDSPath will infer the dataset
+        # else, return the relative path with the basename
+        if (
+            self.suffix is None or self.extension is None
+        ) and self.root is not None:
+            # get matching BIDSPaths inside the bids root
+            matching_paths = _get_matching_bidspaths_from_filesystem(self)
+
+            if self.suffix is None or self.suffix in ALLOWED_DATATYPES:
+                # now only use valid datatype extension
+                if self.extension is None:
+                    valid_exts = sum(ALLOWED_DATATYPE_EXTENSIONS.values(), [])
+                else:
+                    valid_exts = [self.extension]
+                matching_paths = [
+                    p for p in matching_paths if _parse_ext(p)[1] in valid_exts
+                ]
+
+            # found no matching paths
+            if not matching_paths:
+                bids_fpath = data_path / self.basename
+            # if paths still cannot be resolved, then there is an error
+            elif len(matching_paths) > 1:
+                matching_paths_str = "\n".join(sorted(matching_paths))
+                msg = (
+                    "Found more than one matching data file for the "
+                    "requested recording. While searching:\n"
+                    f"{indent(repr(self), '    ')}\n"
+                    f"Found {len(matching_paths)} paths:\n"
+                    f"{indent(matching_paths_str, '    ')}\n"
+                    "Cannot proceed due to the "
+                    "ambiguity. This is likely a problem with your "
+                    "BIDS dataset. Please run the BIDS validator on "
+                    "your data."
+                )
+                raise RuntimeError(msg)
+            else:
+                bids_fpath = matching_paths[0]
+
+        else:
+            bids_fpath = data_path / self.basename
+
+        bids_fpath = Path(bids_fpath)
+        return bids_fpath
+
+    @property
+    def directory(self):
+        """Get the BIDS parent directory.
+
+        If ``subject``, ``session`` and ``datatype`` are set, then they will be
+        used to construct the directory location. For example, if
+        ``subject='01'``, ``session='02'`` and ``datatype='anat'``, then the
+        directory would be::
+
+            <root>/sub-01/ses-02/anat
+
+        Returns
+        -------
+        data_path : pathlib.Path
+            The path of the BIDS directory.
+        """
+        # Create the data path based on the available entities:
+        # root, subject, session, and datatype
+        data_path = Path("") if self.root is None else self.root
+        if self.subject is not None:
+            data_path = data_path / f"sub-{self.subject}"
+        if self.session is not None:
+            data_path = data_path / f"ses-{self.session}"
+        # datatype will allow 'meg', 'eeg', 'ieeg', 'anat'
+        if self.datatype is not None:
+            data_path = data_path / self.datatype
+        return data_path
 
     def __str__(self):
         """Return the string representation of the path."""

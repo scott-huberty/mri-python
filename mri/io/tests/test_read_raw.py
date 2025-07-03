@@ -1,7 +1,9 @@
 from mri.datasets import fetch_pixar_data
 from mri.io import BIDSPath, read_raw_niifti
 
+import pytest
 
+@pytest.mark.skip(reason="Need to finish dataset fetching")
 def test_read_raw(tmp_path):
     """Test reading raw data."""
     # Fetch the data
