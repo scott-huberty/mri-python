@@ -7,7 +7,7 @@ from ..main import run
 def test_main():
     """Test the main package entry-point."""
     runner = CliRunner()
-    result = runner.invoke(run)
+    result = runner.invoke(run, ["--help"])
     # Fail early and loudly if there was an exception
     if result.exception:
         # Print the full traceback for easier debugging
@@ -17,4 +17,3 @@ def test_main():
     assert "Main package entry-point" in result.output
     assert "Options:" in result.output
     assert "Commands:" in result.output
-    assert 1 == 0
