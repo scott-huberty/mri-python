@@ -1,3 +1,4 @@
+from . import io as io
 from . import utils as utils
 from ._version import __version__ as __version__
 from .utils.config import sys_info as sys_info

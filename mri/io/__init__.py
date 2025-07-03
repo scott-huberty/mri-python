@@ -1,0 +1,1 @@
+from .bids.path import BIDSPath
