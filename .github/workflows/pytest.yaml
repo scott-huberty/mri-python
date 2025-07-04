@@ -73,7 +73,7 @@ jobs:
       - name: Display system information
         run: mri sys-info --developer
       - name: Run pytest
-        run: pytest mri --cov=template --cov-report=xml --cov-config=pyproject.toml
+        run: pytest mri --cov=mri --cov-report=xml --cov-config=pyproject.toml
       - name: Upload to codecov
         uses: codecov/codecov-action@v4
         with:
