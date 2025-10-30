@@ -1,0 +1,9 @@
+﻿mri.set\_log\_level
+===================
+
+.. currentmodule:: mri
+
+.. autofunction:: set_log_level
+
+.. minigallery:: mri.set_log_level
+    :add-heading:

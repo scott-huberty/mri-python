@@ -1,0 +1,9 @@
+﻿mri.add\_file\_handler
+======================
+
+.. currentmodule:: mri
+
+.. autofunction:: add_file_handler
+
+.. minigallery:: mri.add_file_handler
+    :add-heading:
